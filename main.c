@@ -31,13 +31,14 @@ void str_sort_n_print(char* str) {
         words[0] = p;
         word_count = 1;
 
+        //set pointers on the beggining of the words
         while (*p) {
                 if (*p == ',' || *p == '.') {
                         *p = '\0';
                         if (*(p + 1) == ' ' || *(p + 1) == '\t' || *(p + 1) == '\n') {
-                                while (*p && !(*(p + 1) >= 'a' && *(p + 1) <= 'z')) p++;
-
-                                if (!*p) break;
+                                while (*(p + 1) == ' ' || *(p + 1) == '\t' || *(p + 1) == '\n') {
+                                        p++;
+                                }
                         }
                         if (*(p + 1) >= 'a' && *(p + 1) <= 'z') {
                                 words[word_count++] = p + 1;
@@ -46,8 +47,9 @@ void str_sort_n_print(char* str) {
                 p++;
         }
 
-        for (int i = 0; i < word_count - 1; i++) {
-                for (int j = i + 1; j < word_count; j++) {
+        //sort words
+        for (int i = 0; i < word_count; i++) {
+                for (int j = 0; j < word_count; j++) {
                         if (my_strcmp(words[i], words[j]) > 0) {
                                 char* temp = words[i];
                                 words[i] = words[j];
