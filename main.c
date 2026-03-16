@@ -7,7 +7,7 @@ int my_strcmp(char* a, char* b) {
                 a++;
                 b++;
         }
-        return (char)a - (char)b;
+        return *b - *a;
 }
 void str_sort_n_print(char* str) {
         char* words[max_words];
@@ -20,6 +20,14 @@ void str_sort_n_print(char* str) {
                 return;
         }
         char* p = str;
+
+        //skip leading spaces
+        while (*p == ' ' || *p == '\t' || *p == '\n') p++;
+        if (*p == '\0') {
+                printf("Error: Parameter is empty or only whitespace\n");
+                return;
+        }
+
         words[0] = p;
         word_count = 1;
 
