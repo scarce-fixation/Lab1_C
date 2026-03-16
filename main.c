@@ -1,9 +1,20 @@
 #include <stdio.h>
 #include <string.h>
 
+int isDelimiter(char c) {
+        char delimiter[] = " \t\n!?.,\"\':;(){}[]-";
+        int len = strlen(delimiter);
+
+        for (int i = 0; i < len; i++) {
+                if (delimiter[i] == c) return 1;
+        }
+        return 0;
+}
+
 int count_word_occurence(char* sentence, char* word) {
         int sLen = strlen(sentence);
         int wLen = strlen(word);
+
 
         int mismatch = 0;
         int count = 0;
@@ -15,9 +26,9 @@ int count_word_occurence(char* sentence, char* word) {
 
         for (int i = 0, j = 0; i <= sLen; i++) {
                 mismatch = 0;
-                int isCharI = (sentence[i] >= 'a' && sentence[i] <= 'z') || (sentence[i] >= 'A' && sentence[i] <= 'Z') || (sentence[i] >= '0' && sentence[i] <= '9');
-                int isCharJ = (sentence[j] >= 'a' && sentence[j] <= 'z') || (sentence[j] >= 'A' && sentence[j] <= 'Z') || (sentence[i] >= '0' && sentence[i] <= '9');
-                if (!isCharI) {
+                int isIDiv = isDelimiter(sentence[i]);
+
+                if (isIDiv || sentence[i] == '\0') {
                         if ((i - j) == wLen) {
                                 for (int k = 0; j < i; j++, k++) {
                                         if (sentence[j] != word[k]) {
@@ -28,7 +39,8 @@ int count_word_occurence(char* sentence, char* word) {
                                 if (!mismatch) count++;
                         }
                         j = i;
-                        if (!isCharJ) j++;
+                        int isJDiv = isDelimiter(sentence[j]);
+                        if (isJDiv) j++;
                 }
         }
         return count;
