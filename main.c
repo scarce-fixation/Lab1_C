@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 #define int_max 2147483647
+#define int_min -2147483648
 int convert_str_to_num(char* num) {
         long long convertedNum = 0;
         int nLen = strlen(num);
@@ -34,12 +35,17 @@ int convert_str_to_num(char* num) {
                 convertedNum += digit;
 
         }
+        if (sign) convertedNum *= -1;
+
         if (convertedNum > int_max) {
                 printf("Int overflow\n");
                 return -1;
         }
 
-        if (sign) convertedNum *= -1;
+        if (convertedNum < int_min) {
+                printf("Int overflow\n");
+                return -1;
+        }
 
         return (int)convertedNum;
 
