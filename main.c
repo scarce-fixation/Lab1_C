@@ -11,6 +11,11 @@ int convert_str_to_num(char* num) {
                 printf("Error: Number is too big or too small\n");
                 return -1;
         }
+        if (nLen == 0) {
+                printf("Error: Parameter is empty \n");
+                return -1;
+        }
+
         if (num[0] == '-') {
                 sign = 1;
                 i = 1;
@@ -41,10 +46,12 @@ int convert_str_to_num(char* num) {
 
 }
 int main() {
-
         //expected output is 123
         char number[] = "123";
 
+        //expected output is Error: Parameter is empty
+        //char number[] = "";
+        //
         ////expected output is -123
         //char number[] = "-123";
 
@@ -74,6 +81,10 @@ int main() {
 
         ////expected output is Int overflow
         //char number[] = "2147483649";
+
+
+
         printf("%d", convert_str_to_num(number));
+
         return 0;
 }
