@@ -48,7 +48,30 @@ int count_word_occurence(char* sentence, char* word) {
 
 int main()
 {
+        ////expected output is 4
+        //char sentence[] = "abbc abbbc abbc abbc		abbc";
+        //char word[] = "abbc";
+        //expected output is 4
+        /*char sentence[] = "(a) {a} {{{a";
+        char word[] = "a";*/
 
+        //expected output is 8
+        char sentence[] = "abbc, abbc.abbc!abbc	(abbca ) (abbc) {abbc} [abbc] abbc-ddef";
+        char word[] = "abbc";
+
+        ////expected output is -1
+        //char sentence[] = "";
+        //char word[] = "";
+
+        ////expected output is 0
+        //char sentence[] = "  ";
+        //char word[] = "abbc";
+        //
+        ////expected output is 1
+        //char sentence[] = "	abbc	";
+        //char word[] = "abbc";
+
+        printf("%d", count_word_occurence(sentence, word));
     return 0;
 }
 
