@@ -42,9 +42,38 @@ int convert_str_to_num(char* num) {
 }
 int main() {
 
-
+        //expected output is 123
         char number[] = "123";
-        printf("%d", convert_str_to_num(number));
 
+        ////expected output is -123
+        //char number[] = "-123";
+
+        ////expected output is 2147483647
+        //char number[] = "2147483647";
+
+        ////expected output is -2147483648
+        //char number[] = "-2147483648";
+
+        ////expected output is Error: Parameter contains not digit symbols
+        //char number[] = "ab dc";
+
+        ////expected output is Error: Parameter contains not digit symbols
+        //char number[] = "123cf3245";
+
+        ////expected output is Error: Parameter contains not digit symbols
+        //char number[] = "\t";
+
+        ////expected output is Error: Parameter contains not digit symbols
+        //char number[] = "\n";
+
+        ////expected output is Error: Parameter contains not digit symbols
+        //char number[] = ".g";
+
+        ////expected output is Error: Number is too big or too small
+        //char number[] = "99999999999999999";
+
+        ////expected output is Int overflow
+        //char number[] = "2147483649";
+        printf("%d", convert_str_to_num(number));
         return 0;
 }
