@@ -53,7 +53,23 @@ void str_sort_n_print(char* str) {
         }
 }
 int main() {
+        char str[] = "a,          c,		b, \nabbc,abc.";
 
+        /*char str[] = "c,a,b.";
+
+        char str[] = "		a,          c,		b, \nabbc,abc.";
+
+        char str[] = "a,          c,		b, \nabbc,abc.";
+
+        char str[] = "12344, 123, 123.";
+
+        char str[] = " ";
+
+        char str[] = "sdf";
+
+        char str[] = "sdf,a";*/
+
+        str_sort_n_print(str);
 
 
         return 0;
