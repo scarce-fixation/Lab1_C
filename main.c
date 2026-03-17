@@ -12,6 +12,7 @@ int isDelimiter(char c) {
 }
 
 int count_word_occurence(char* sentence, char* word) {
+        if(sentence == NULL || word == NULL) return -1;
         int sLen = strlen(sentence);
         int wLen = strlen(word);
 
@@ -19,8 +20,7 @@ int count_word_occurence(char* sentence, char* word) {
         int mismatch = 0;
         int count = 0;
 
-        if (wLen == 0 || sLen == 0) {
-                printf("Error: One or more parameters are empty");
+        if (wLen == 0 || sLen == 0) {                
                 return -1;
         }
 
