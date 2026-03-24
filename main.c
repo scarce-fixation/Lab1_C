@@ -145,6 +145,24 @@ int main() {
 
     // char str[] = "a. b";
 
+    //new test cases
+    // char str[] = "A a AC ac aBd Abd";
+
+    // char str[] = "zyx xyz fedcba abcdef";
+
+    // char str[] = "z q w e r r t y u i o p a s d f g h j k l z x c v b n m";
+
+
+    // char str[] = "qwertyuio lkjhgfds qazwsxc";
+
+
+    // char str[] = "a ab abc abcde";
+
+
+    // char str[] = "19 1 11 21 2 23 85 58 75 57 ";
+
+    // char str[] = "a aa aaa aaaa aaca aaaza aaaaa ";
+
     char str[] = "a b ab ";
 
     int cnt = str_sort(str);
