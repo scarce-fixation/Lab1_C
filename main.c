@@ -19,9 +19,9 @@ int isDelimiter(char c) {
     return 0;
 }
 
-int str_sort(const char* src,char* str, char** words) {
-    if (src == NULL || words == NULL || str == NULL) return -2;
-    strcpy_s(str, max_len,src);
+int str_sort( char* str) {
+    if (str == NULL) return -2;
+    char* words[max_words];
 
     int word_count = 0;
     int len = strlen(str);
@@ -74,6 +74,26 @@ int str_sort(const char* src,char* str, char** words) {
             }
         }
     }
+
+    char buffer[max_len];
+    char* buff_ptr = buffer;
+    int first_word = 1;
+
+    for (int i = 0; i < word_count; i++) {
+        if (!first_word) *buff_ptr++ = ' ';
+
+        first_word = 0;
+
+        char* word_ptr = words[i];
+        while (*word_ptr != '\0') {
+            *buff_ptr++ = *word_ptr++;
+
+        }
+
+    }
+    *buff_ptr = '\0';
+
+    strcpy(str, buffer);
     return word_count;
 }
 int main() {
@@ -126,11 +146,10 @@ int main() {
     // char str[] = "a. b";
 
     char str[] = "a b ab ";
-    char copy[max_len];
-    char* words[max_words];
-    int cnt = str_sort(str,copy, words);
+
+    int cnt = str_sort(str);
     if (cnt >= 0) {
-        for (int i = 0; i < cnt; i++) printf("%s\n", words[i]);
+        printf("%s\n", str);
     }
     else {
         printf("Error");
