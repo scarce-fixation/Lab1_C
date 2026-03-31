@@ -157,13 +157,15 @@ int main() {
 
 
     // char str[] = "a ab abc abcde";
-
-
+    //char str[] = "pneumonoultramicroscopicsilicovolcanoconiosis antidisestablishmentalism floccinaucinihilipilification a aa aaa";
+    //char str[] = "test test test case case duplicate duplicate unique";
+    //char str[] = "ab AA aB Ab aBc Abc";
+    char str[] = "a b c d e f g h i j k l m n o p q r s t u v w x y z a b c d e f g h i j k l m n o p q r s t u v w x y z"; // 52 words
     // char str[] = "19 1 11 21 2 23 85 58 75 57 ";
 
     // char str[] = "a aa aaa aaaa aaca aaaza aaaaa ";
 
-    char str[] = "a b ab ";
+    //char str[] = "a b ab ";
 
     int cnt = str_sort(str);
     if (cnt >= 0) {
